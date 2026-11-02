@@ -33,13 +33,27 @@ export function initSmoothScroll() {
 
     // Smooth scroll to anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        // Enlaces del menú hamburguesa son gestionados por initMobileMenu()
+        if (anchor.closest('#main-nav')) return;
+
         anchor.addEventListener('click', (e) => {
             const targetId = anchor.getAttribute('href');
             if (targetId && targetId !== '#') {
                 const targetEl = document.querySelector(targetId);
-                if (targetEl && lenis) {
+                if (targetEl) {
                     e.preventDefault();
-                    lenis.scrollTo(targetEl, { duration: 1.2 });
+                    const activeLenis = lenis || window.lenis;
+                    if (activeLenis) {
+                        activeLenis.start();
+                        const headerOffset = window.innerWidth <= 1024 ? -70 : 0;
+                        activeLenis.scrollTo(targetEl, {
+                            offset: headerOffset,
+                            duration: 1.2,
+                            force: true
+                        });
+                    } else {
+                        targetEl.scrollIntoView({ behavior: 'smooth' });
+                    }
                 }
             }
         });

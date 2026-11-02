@@ -888,7 +888,66 @@ footer {
     }
 }
 
+body.menu-open {
+    overflow: hidden;
+}
+
 @media (max-width: 1024px) {
+    header {
+        padding: 1.5rem 2rem;
+        justify-content: space-between;
+        align-items: center;
+        mix-blend-mode: normal;
+        background: rgba(5, 5, 5, 0.85);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+    }
+
+    .logo {
+        z-index: 1001;
+    }
+
+    .menu-toggle {
+        display: flex;
+        z-index: 1001;
+    }
+
+    nav#main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--bg-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        z-index: 1000;
+    }
+
+    nav#main-nav.active {
+        right: 0;
+    }
+
+    nav a {
+        margin: 1.5rem 0;
+        font-size: 1.5rem;
+    }
+
+    .menu-toggle.active .hamburger-bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle.active .hamburger-bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .hamburger-bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
     .covers-section {
         padding: 6rem 2rem;
     }
@@ -928,59 +987,6 @@ footer {
 
 /* MOBILE SPECIFIC LAYOUT (<= 768px): Stacking centrado */
 @media (max-width: 768px) {
-    header {
-        padding: 1.5rem 2rem;
-        justify-content: space-between;
-        align-items: center;
-        mix-blend-mode: normal;
-        background: rgba(5, 5, 5, 0.85);
-        backdrop-filter: blur(10px);
-    }
-
-    .logo {
-        z-index: 1001;
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-
-    nav#main-nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 100%;
-        height: 100vh;
-        background: var(--bg-color);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-        z-index: 999;
-    }
-
-    nav#main-nav.active {
-        right: 0;
-    }
-
-    nav a {
-        margin: 1.5rem 0;
-        font-size: 1.5rem;
-    }
-
-    .menu-toggle.active .hamburger-bar:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-    }
-
-    .menu-toggle.active .hamburger-bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle.active .hamburger-bar:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-    }
-
     .hero {
         flex-direction: column;
         justify-content: center;
