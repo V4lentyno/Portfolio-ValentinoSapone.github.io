@@ -5,47 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Portfolio de Valentino Sapone — Diseñador Multimedia especializado en identidad visual, motion y experiencias digitales para artistas y marcas.">
-    <title>Valentino Sapone — Diseñador Multimedia</title>
+        content="Portfolio de Valentino Sapone - Diseñador Web y Estudiante de Diseño Multimedia especializado en experiencias digitales modernas y minimalistas.">
+    <title>Portfolio - Valentino Sapone</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/iconoweb.ico">
 
-    <!-- Open Graph / Social Preview -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://valentino-sapone.vercel.app/">
-    <meta property="og:title" content="Valentino Sapone — Diseñador Multimedia">
-    <meta property="og:description" content="Diseño identidades visuales, motion y experiencias digitales para artistas y marcas de la escena contemporánea.">
-    <meta property="og:image" content="https://valentino-sapone.vercel.app/images/foto_perfil_azul.png">
-    <meta property="og:locale" content="es_UY">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Valentino Sapone — Diseñador Multimedia">
-    <meta name="twitter:description" content="Diseño identidades visuales, motion y experiencias digitales para artistas y marcas de la escena contemporánea.">
-    <meta name="twitter:image" content="https://valentino-sapone.vercel.app/images/foto_perfil_azul.png">
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Valentino Sapone",
-      "jobTitle": "Diseñador Multimedia",
-      "url": "https://valentino-sapone.vercel.app/",
-      "email": "valentinosaponet@gmail.com",
-      "sameAs": [
-        "https://www.instagram.com/v4lentyno/",
-        "https://www.linkedin.com/in/valentino-sapone/",
-        "https://www.behance.net/v4lentyno"
-      ]
-    }
-    </script>
-
-    <!-- Google Fonts: Outfit + Space Mono -->
+    <!-- Google Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <!-- Lenis CSS -->
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.20/dist/lenis.css">
@@ -83,53 +52,36 @@
                 </div>
             </div>
             <div class="hero-right">
-                <span class="hero-tag mono-tag">— Diseño Multimedia</span>
-                <h1 class="hero-title">Valentino<br>Sapone.</h1>
-                <p class="hero-desc">Diseño identidades visuales, piezas de motion y experiencias digitales
-                    para artistas y marcas de la escena contemporánea.
+                <h1 class="hero-title">Diseñador<br>Multimedia.</h1>
+                <p class="hero-desc">¡Hola! me llamo Valentino Sapone y tengo 23 años. Me gusta crear, aprender y
+                    mejorar en cada proyecto. Soy una persona proactiva y responsable. Actualmente me encuentro cursando
+                    la Licenciatura en Diseño Multimedia en Universidad ORT Uruguay.
                 </p>
-                <div class="hero-actions">
-                    <a href="#gallery" class="cta-button">Ver Proyectos</a>
-                </div>
+                <a href="#gallery" class="cta-button">Ver Proyectos</a>
             </div>
         </section>
 
         <!-- Section 2: Fullscreen 3D Interactive Laptop Showcase -->
         <section class="gallery-3d-section" id="gallery">
-            <div class="gallery-header">
-                <span class="gallery-index mono-tag">01 / 03</span>
-                <h2 class="gallery-title">Proyectos</h2>
-                <p class="gallery-subtitle">Arrastrá para explorar — Click para ver más</p>
-            </div>
             <div class="canvas-3d-fullscreen" id="projects-3d-canvas"></div>
-            <!-- Fallback HTML si WebGL no está disponible -->
-            <noscript>
-                <ul class="projects-fallback">
-                    <li><a href="https://www.behance.net/gallery/240027703/Rediseno-Cosem-Online" target="_blank" rel="noopener noreferrer">01 — Rediseño Cosem Online <span>UI / UX</span></a></li>
-                    <li><a href="https://www.behance.net/gallery/229775105/LoopUp-Mobile-App" target="_blank" rel="noopener noreferrer">02 — LoopUp App <span>Diseño de App</span></a></li>
-                    <li><a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer">03 — Modelado 3D Ajedrez <span>Cinema 4D</span></a></li>
-                </ul>
-            </noscript>
         </section>
 
-        <!-- Section 2B: Proyectos Audiovisuales (Vimeo — lazy load) -->
+        <!-- Section 2B: Proyectos Audiovisuales (Vimeo) -->
         <section class="audiovisual-section" id="audiovisual">
             <div class="audiovisual-header">
-                <span class="mono-tag">02 / 03</span>
-                <h2 class="section-title">Audiovisual</h2>
+                <h2 class="section-title">Proyectos Audiovisuales</h2>
                 <p class="section-subtitle">Producciones y entregas multimedia en formato de video.</p>
             </div>
             <div class="audiovisual-grid">
                 <!-- Video Card 1: Carpeta Anual 2 -->
                 <div class="audiovisual-card">
-                    <div class="video-facade" data-vimeo-id="1178099028" role="button" tabindex="0" aria-label="Reproducir Carpeta Anual 2">
-                        <img class="video-thumbnail" src="https://vumbnail.com/1178099028.jpg" alt="Thumbnail Carpeta Anual 2" loading="lazy">
-                        <button class="video-play-btn" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        </button>
+                    <div class="video-iframe-wrapper">
+                        <iframe src="https://player.vimeo.com/video/1178099028?badge=0&autopause=0&player_id=0"
+                            frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                            title="Carpeta Anual 2"></iframe>
                     </div>
                     <div class="audiovisual-info">
-                        <span class="audiovisual-tag mono-tag">AUDIOVISUAL &amp; MULTIMEDIA</span>
+                        <span class="audiovisual-tag">AUDIOVISUAL & MULTIMEDIA</span>
                         <h3 class="audiovisual-title">Carpeta Anual 2</h3>
                         <p class="audiovisual-desc">Recopilación de trabajos y entregas realizadas durante el tercer y
                             cuarto semestre de la Licenciatura en Diseño Multimedia en Universidad ORT Uruguay.</p>
@@ -138,14 +90,13 @@
 
                 <!-- Video Card 2: Repeat -->
                 <div class="audiovisual-card">
-                    <div class="video-facade" data-vimeo-id="1178099739" role="button" tabindex="0" aria-label="Reproducir Repeat">
-                        <img class="video-thumbnail" src="https://vumbnail.com/1178099739.jpg" alt="Thumbnail Repeat" loading="lazy">
-                        <button class="video-play-btn" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        </button>
+                    <div class="video-iframe-wrapper">
+                        <iframe src="https://player.vimeo.com/video/1178099739?badge=0&autopause=0&player_id=0"
+                            frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                            title="Repeat"></iframe>
                     </div>
                     <div class="audiovisual-info">
-                        <span class="audiovisual-tag mono-tag">BRANDING &amp; MOTION</span>
+                        <span class="audiovisual-tag">BRANDING & MOTION</span>
                         <h3 class="audiovisual-title">Repeat</h3>
                         <p class="audiovisual-desc">Proyecto de identidad visual para estudio de diseño ficticio
                             especializado en música urbana y producción gráfica contemporánea.</p>
@@ -154,16 +105,15 @@
 
                 <!-- Video Card 3: DayNnite -->
                 <div class="audiovisual-card">
-                    <div class="video-facade" data-vimeo-id="1220455394" role="button" tabindex="0" aria-label="Reproducir DayNnite">
-                        <img class="video-thumbnail" src="https://vumbnail.com/1220455394.jpg" alt="Thumbnail DayNnite" loading="lazy">
-                        <button class="video-play-btn" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        </button>
+                    <div class="video-iframe-wrapper">
+                        <iframe src="https://player.vimeo.com/video/1220455394?badge=0&autopause=0&player_id=0"
+                            frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                            title="DayNnite"></iframe>
                     </div>
                     <div class="audiovisual-info">
-                        <span class="audiovisual-tag mono-tag">MIXED MEDIA &amp; VIDEOCLIP</span>
+                        <span class="audiovisual-tag">MIXED MEDIA & VIDEOCLIP</span>
                         <h3 class="audiovisual-title">DayNnite</h3>
-                        <p class="audiovisual-desc">Proyecto de Videoclip Mixed &amp; Media para la materia Gráfica para
+                        <p class="audiovisual-desc">Proyecto de Videoclip Mixed & Media para la materia Gráfica para
                             Cine y Tv del 5to semestre de la Licenciatura en Diseño Multimedia, utilizando la canción
                             "DayNnite - Kid Cudi".</p>
                     </div>
@@ -188,87 +138,97 @@
         <section id="skills" class="skills-section">
             <div class="skills-container">
                 <div class="skills-header">
-                    <h2>Herramientas</h2>
-                    <p class="mono-tag">Stack de trabajo</p>
+                    <h2>Habilidades</h2>
+                    <p>Herramientas y Tecnologías</p>
                 </div>
-                <div class="skills-disciplines">
-
-                    <!-- Diseño Visual -->
-                    <div class="discipline-group">
-                        <h3 class="discipline-label mono-tag">Diseño Visual</h3>
-                        <div class="discipline-tools">
+                <div class="skills-disciplines-grid">
+                    <!-- Disciplina 1: Diseño Visual -->
+                    <div class="discipline-card">
+                        <div class="discipline-header">
+                            <span class="discipline-tag">01 / DISCIPLINA</span>
+                            <h3 class="discipline-title">Diseño Visual</h3>
+                        </div>
+                        <div class="tools-list">
                             <div class="tool-item">
                                 <div class="tool-icon">
-                                    <img src="images/logophotoshop.png" alt="Photoshop" loading="lazy">
+                                    <img src="images/logophotoshop.png" alt="Adobe Photoshop">
                                 </div>
-                                <span class="tool-name">Photoshop</span>
+                                <span class="tool-name">Adobe Photoshop</span>
                             </div>
                             <div class="tool-item">
                                 <div class="tool-icon">
-                                    <img src="images/logoillustrator.png" alt="Illustrator" loading="lazy">
+                                    <img src="images/logoillustrator.png" alt="Adobe Illustrator">
                                 </div>
-                                <span class="tool-name">Illustrator</span>
+                                <span class="tool-name">Adobe Illustrator</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Motion & Video -->
-                    <div class="discipline-group">
-                        <h3 class="discipline-label mono-tag">Motion &amp; Video</h3>
-                        <div class="discipline-tools">
+                    <!-- Disciplina 2: Motion & Video -->
+                    <div class="discipline-card">
+                        <div class="discipline-header">
+                            <span class="discipline-tag">02 / DISCIPLINA</span>
+                            <h3 class="discipline-title">Motion & Video</h3>
+                        </div>
+                        <div class="tools-list">
                             <div class="tool-item">
                                 <div class="tool-icon">
-                                    <img src="images/logoaftereffects.png" alt="After Effects" loading="lazy">
+                                    <img src="images/logoaftereffects.png" alt="Adobe After Effects">
                                 </div>
-                                <span class="tool-name">After Effects</span>
+                                <span class="tool-name">Adobe After Effects</span>
                             </div>
                             <div class="tool-item">
                                 <div class="tool-icon">
-                                    <img src="images/logopremiere.png" alt="Premiere" loading="lazy">
+                                    <img src="images/logopremiere.png" alt="Adobe Premiere">
                                 </div>
-                                <span class="tool-name">Premiere</span>
+                                <span class="tool-name">Adobe Premiere</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 3D -->
-                    <div class="discipline-group">
-                        <h3 class="discipline-label mono-tag">3D</h3>
-                        <div class="discipline-tools">
+                    <!-- Disciplina 3: 3D -->
+                    <div class="discipline-card">
+                        <div class="discipline-header">
+                            <span class="discipline-tag">03 / DISCIPLINA</span>
+                            <h3 class="discipline-title">3D</h3>
+                        </div>
+                        <div class="tools-list">
                             <div class="tool-item">
                                 <div class="tool-icon">
-                                    <img src="images/cinema4dlogo.png" alt="Cinema 4D" loading="lazy">
+                                    <img src="images/cinema4dlogo.png" alt="Cinema 4D">
                                 </div>
                                 <span class="tool-name">Cinema 4D</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Desarrollo Web -->
-                    <div class="discipline-group">
-                        <h3 class="discipline-label mono-tag">Desarrollo Web</h3>
-                        <div class="discipline-tools">
+                    <!-- Disciplina 4: Desarrollo Web -->
+                    <div class="discipline-card">
+                        <div class="discipline-header">
+                            <span class="discipline-tag">04 / DISCIPLINA</span>
+                            <h3 class="discipline-title">Desarrollo Web</h3>
+                        </div>
+                        <div class="tools-list">
                             <div class="tool-item">
                                 <div class="tool-icon">
-                                    <img src="images/csslogo.png" alt="CSS" loading="lazy">
+                                    <img src="images/csslogo.png" alt="CSS">
                                 </div>
                                 <span class="tool-name">CSS</span>
                             </div>
                             <div class="tool-item">
                                 <div class="tool-icon">
-                                    <img src="images/jslogo.png" alt="JavaScript" loading="lazy">
+                                    <img src="images/jslogo.png" alt="JavaScript">
                                 </div>
                                 <span class="tool-name">JavaScript</span>
                             </div>
                             <div class="tool-item">
                                 <div class="tool-icon">
-                                    <img src="images/visualstudiologo.png" alt="VS Code" loading="lazy">
+                                    <img src="images/visualstudiologo.png" alt="VS Code">
                                 </div>
                                 <span class="tool-name">VS Code</span>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -299,14 +259,6 @@
         </div>
     </footer>
 
-    <!-- Preloader -->
-    <div class="preloader" id="preloader" aria-hidden="true">
-        <div class="preloader-inner">
-            <span class="preloader-logo">VS.</span>
-            <div class="preloader-bar"><div class="preloader-fill" id="preloader-fill"></div></div>
-        </div>
-    </div>
-
     <!-- Lightbox para Portadas -->
     <div class="lightbox-overlay" id="lightbox" aria-hidden="true">
         <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar lightbox">&times;</button>
@@ -320,6 +272,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <!-- Lenis JS -->
     <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    <!-- Vimeo Player JS -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
 
     <!-- Custom Script Entry Point (ES6 Modules) -->
     <script type="module" src="script.js"></script>
