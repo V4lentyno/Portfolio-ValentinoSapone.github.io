@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfolio de Valentino Sapone - Diseñador Web y Estudiante de Diseño Multimedia especializado en experiencias digitales modernas y minimalistas.">
+    <title>Portfolio - Valentino Sapone</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/iconoweb.ico">
+
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Lenis CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.20/dist/lenis.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="gradient-bg"></div>
+    <div class="noise-overlay"></div>
+
+    <header>
+        <div class="logo">VALENTINO SAPONE.</div>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+        <nav id="main-nav">
+            <a href="#hero">Presentación</a>
+            <a href="#gallery">Proyectos</a>
+            <a href="#audiovisual">Audiovisual</a>
+            <a href="#skills">Habilidades</a>
+            <a href="#contact">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Section 1: Hero -->
+        <section id="hero" class="hero">
+            <div class="hero-left">
+                <div class="image-placeholder">
+                    <img src="images/foto_perfil_azul.png" alt="Foto de perfil Valentino Sapone">
+                </div>
+            </div>
+            <div class="hero-right">
+                <h1 class="hero-title">Diseñador<br>Multimedia.</h1>
+                <p class="hero-desc">¡Hola! me llamo Valentino Sapone y tengo 23 años. Me gusta crear, aprender y
+                    mejorar en cada proyecto. Soy una persona proactiva y responsable. Actualmente me encuentro cursando
+                    la Licenciatura en Diseño Multimedia en Universidad ORT Uruguay.
+                </p>
+                <a href="#gallery" class="cta-button">Ver Proyectos</a>
+            </div>
+        </section>
+
+        <!-- Section 2: Fullscreen 3D Interactive Laptop Showcase -->
+        <section class="gallery-3d-section" id="gallery">
+            <div class="canvas-3d-fullscreen" id="projects-3d-canvas"></div>
+        </section>
+
+        <!-- Section 2B: Proyectos Audiovisuales (Vimeo) -->
+        <section class="audiovisual-section" id="audiovisual">
+            <div class="audiovisual-header">
+                <h2 class="section-title">Proyectos Audiovisuales</h2>
+                <p class="section-subtitle">Producciones y entregas multimedia en formato de video.</p>
+            </div>
+            <div class="audiovisual-grid">
+                <!-- Video Card 1: Carpeta Anual 2 -->
+                <div class="audiovisual-card">
+                    <div class="video-iframe-wrapper">
+                        <iframe src="https://player.vimeo.com/video/1178099028?badge=0&autopause=0&player_id=0"
+                            frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                            title="Carpeta Anual 2"></iframe>
+                    </div>
+                    <div class="audiovisual-info">
+                        <span class="audiovisual-tag">AUDIOVISUAL & MULTIMEDIA</span>
+                        <h3 class="audiovisual-title">Carpeta Anual 2</h3>
+                        <p class="audiovisual-desc">Recopilación de trabajos y entregas realizadas durante el tercer y
+                            cuarto semestre de la Licenciatura en Diseño Multimedia en Universidad ORT Uruguay.</p>
+                    </div>
+                </div>
+
+                <!-- Video Card 2: Repeat -->
+                <div class="audiovisual-card">
+                    <div class="video-iframe-wrapper">
+                        <iframe src="https://player.vimeo.com/video/1178099739?badge=0&autopause=0&player_id=0"
+                            frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                            title="Repeat"></iframe>
+                    </div>
+                    <div class="audiovisual-info">
+                        <span class="audiovisual-tag">BRANDING & MOTION</span>
+                        <h3 class="audiovisual-title">Repeat</h3>
+                        <p class="audiovisual-desc">Proyecto de identidad visual para estudio de diseño ficticio
+                            especializado en música urbana y producción gráfica contemporánea.</p>
+                    </div>
+                </div>
+
+                <!-- Video Card 3: DayNnite -->
+                <div class="audiovisual-card">
+                    <div class="video-iframe-wrapper">
+                        <iframe src="https://player.vimeo.com/video/1220455394?badge=0&autopause=0&player_id=0"
+                            frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                            title="DayNnite"></iframe>
+                    </div>
+                    <div class="audiovisual-info">
+                        <span class="audiovisual-tag">MIXED MEDIA & VIDEOCLIP</span>
+                        <h3 class="audiovisual-title">DayNnite</h3>
+                        <p class="audiovisual-desc">Proyecto de Videoclip Mixed & Media para la materia Gráfica para
+                            Cine y Tv del 5to semestre de la Licenciatura en Diseño Multimedia, utilizando la canción
+                            "DayNnite - Kid Cudi".</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Portadas de Canciones (Exhibidor 3D de Discos y Vinilos) -->
+        <section class="covers-section" id="covers-3d-section">
+            <div class="covers-header">
+                <h2 class="section-title">Portadas para Artistas</h2>
+                <p class="section-subtitle">Diseños de portadas para Sencillos y Mixtapes musicales de distintos
+                    géneros.<br>Haz click sobre cualquier diseño para verlo a detalle.</p>
+            </div>
+
+            <div class="covers-3d-wrapper">
+                <div class="canvas-covers-3d" id="covers-3d-canvas"></div>
+            </div>
+        </section>
+
+        <!-- Section 4: Skills -->
+        <section id="skills" class="skills-section">
+            <div class="skills-container">
+                <div class="skills-header">
+                    <h2>Habilidades</h2>
+                    <p>Herramientas y Tecnologías</p>
+                </div>
+                <div class="skills-graph">
+                    <!-- Photoshop -->
+                    <div class="skill-bar-container">
+                        <div class="skill-track">
+                            <div class="skill-bar" data-height="95%">
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                        </div>
+                        <div class="skill-footer">
+                            <div class="skill-icon-placeholder">
+                                <img src="images/logophotoshop.png" alt="Photoshop">
+                            </div>
+                            <span class="skill-name"> Adobe Photoshop</span>
+                        </div>
+                    </div>
+                    <!-- Illustrator -->
+                    <div class="skill-bar-container">
+                        <div class="skill-track">
+                            <div class="skill-bar" data-height="90%">
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                        </div>
+                        <div class="skill-footer">
+                            <div class="skill-icon-placeholder">
+                                <img src="images/logoillustrator.png" alt="Illustrator">
+                            </div>
+                            <span class="skill-name">Adobe Illustrator</span>
+                        </div>
+                    </div>
+                    <!-- After Effects -->
+                    <div class="skill-bar-container">
+                        <div class="skill-track">
+                            <div class="skill-bar" data-height="85%">
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                        </div>
+                        <div class="skill-footer">
+                            <div class="skill-icon-placeholder">
+                                <img src="images/logoaftereffects.png" alt="After Effects">
+                            </div>
+                            <span class="skill-name">Adobe After Effects</span>
+                        </div>
+                    </div>
+                    <!-- Premiere -->
+                    <div class="skill-bar-container">
+                        <div class="skill-track">
+                            <div class="skill-bar" data-height="85%">
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                        </div>
+                        <div class="skill-footer">
+                            <div class="skill-icon-placeholder">
+                                <img src="images/logopremiere.png" alt="Premiere">
+                            </div>
+                            <span class="skill-name">Adobe Premiere</span>
+                        </div>
+                    </div>
+                    <!-- Cinema 4D -->
+                    <div class="skill-bar-container">
+                        <div class="skill-track">
+                            <div class="skill-bar" data-height="65%">
+                                <span class="skill-percentage">65%</span>
+                            </div>
+                        </div>
+                        <div class="skill-footer">
+                            <div class="skill-icon-placeholder">
+                                <img src="images/cinema4dlogo.png" alt="Cinema 4D">
+                            </div>
+                            <span class="skill-name">Cinema 4D</span>
+                        </div>
+                    </div>
+                    <!-- VS Code -->
+                    <div class="skill-bar-container">
+                        <div class="skill-track">
+                            <div class="skill-bar" data-height="75%">
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                        </div>
+                        <div class="skill-footer">
+                            <div class="skill-icon-placeholder">
+                                <img src="images/visualstudiologo.png" alt="VS Code">
+                            </div>
+                            <span class="skill-name">Visual Studio Code</span>
+                        </div>
+                    </div>
+                    <!-- CSS -->
+                    <div class="skill-bar-container">
+                        <div class="skill-track">
+                            <div class="skill-bar" data-height="80%">
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                        </div>
+                        <div class="skill-footer">
+                            <div class="skill-icon-placeholder">
+                                <img src="images/csslogo.png" alt="CSS">
+                            </div>
+                            <span class="skill-name">CSS</span>
+                        </div>
+                    </div>
+                    <!-- JavaScript -->
+                    <div class="skill-bar-container">
+                        <div class="skill-track">
+                            <div class="skill-bar" data-height="60%">
+                                <span class="skill-percentage">60%</span>
+                            </div>
+                        </div>
+                        <div class="skill-footer">
+                            <div class="skill-icon-placeholder">
+                                <img src="images/jslogo.png" alt="JavaScript">
+                            </div>
+                            <span class="skill-name">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Magnify Text Spacer -->
+        <section class="spacer">
+            <h2 class="magnify-text">Que tus ideas no tengan límites</h2>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h2>¿Querés plantearme tu idea?</h2>
+                <a href="mailto:valentinosaponet@gmail.com" class="footer-email">valentinosaponet@gmail.com</a>
+            </div>
+            <div class="footer-right flex-links">
+                <a href="https://www.instagram.com/v4lentyno/?next=&hl=es" class="social-link" target="_blank"
+                    rel="noopener noreferrer">Instagram</a>
+                <a href="https://www.linkedin.com/in/valentino-sapone/" class="social-link" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://www.behance.net/v4lentyno" class="social-link" target="_blank"
+                    rel="noopener noreferrer">Behance</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Portfolio Valentino Sapone.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox para Portadas -->
+    <div class="lightbox-overlay" id="lightbox" aria-hidden="true">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar lightbox">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Anterior portada">&#10094;</button>
+        <img class="lightbox-img" id="lightbox-img" src="" alt="Portada ampliada">
+        <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Siguiente portada">&#10095;</button>
+    </div>
+
+    <!-- GSAP & Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Lenis JS -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    <!-- Vimeo Player JS -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
+
+    <!-- Custom Script Entry Point (ES6 Modules) -->
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
