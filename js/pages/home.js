@@ -49,7 +49,7 @@ function renderCoversFallback() {
     const ul = document.getElementById('covers-fallback');
     if (!ul) return;
     ul.innerHTML = coversData
-        .map((c, i) => `<li><button type="button" data-cover="${i}">${c.title.toLowerCase()}</button></li>`)
+        .map((c, i) => `<li><button type="button" data-cover="${i}">${c.title.toLowerCase().replace(/&/g, "&amp;")}</button></li>`)
         .join('');
     ul.addEventListener('click', (e) => {
         const b = e.target.closest('[data-cover]');

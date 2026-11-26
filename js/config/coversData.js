@@ -8,9 +8,9 @@ import hyhImg from '../../images/portada-hyh.webp';
  * Portadas para artistas: alimentan el estante 3D, el lightbox y el carrusel del CTA.
  */
 export const coversData = [
-    { title: 'Diligencias', image: diligenciasImg },
-    { title: 'Feli', image: feliImg },
-    { title: 'Waterproof', image: waterproofImg },
-    { title: 'Salida', image: salidaImg },
-    { title: 'HyH', image: hyhImg },
+    { title: 'diligencias - chayn', image: diligenciasImg },
+    { title: 'presumir - feli franco', image: feliImg },
+    { title: 'waterproof - chayn', image: waterproofImg },
+    { title: 'salida - feli franco', image: salidaImg },
+    { title: 'h&h album - chayn', image: hyhImg },
 ];
