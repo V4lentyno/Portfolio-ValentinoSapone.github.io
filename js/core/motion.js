@@ -39,7 +39,10 @@ export function playPageEnter(onDone) {
  *  - data-reveal="pixel"  → al cargar, recorte escalonado (guiño pixelado de NOLOGY)
  */
 export function initTitleReveals() {
-    if (!hasGsap() || reducedMotion) return;
+    if (!hasGsap() || reducedMotion) {
+        document.documentElement.classList.remove('js-reveal');
+        return;
+    }
 
     document.querySelectorAll('[data-reveal]').forEach((el) => {
         const inner = el.querySelector('.reveal-line__inner') || el;
@@ -54,12 +57,16 @@ export function initTitleReveals() {
             return;
         }
 
-        const vars = { yPercent: 100, duration: DURATION, ease: EASE };
+        // Arranca por completo debajo de la máscara: la altura del texto + el aire
+        // para descendentes (.reveal-line) + lo que sobresalen las ascendentes.
+        const from = { yPercent: 140 };
+        const to = { yPercent: 0, duration: DURATION, ease: EASE };
         if (mode === 'load') {
-            gsap.from(inner, { ...vars, delay: 0.7 });
+            gsap.fromTo(inner, from, { ...to, delay: 0.7 });
+            gsap.set(el, { visibility: 'visible' });
         } else if (typeof ScrollTrigger !== 'undefined') {
-            gsap.from(inner, {
-                ...vars,
+            gsap.fromTo(inner, from, {
+                ...to,
                 scrollTrigger: { trigger: el, start: 'top 85%', once: true },
             });
         }

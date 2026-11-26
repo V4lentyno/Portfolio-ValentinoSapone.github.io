@@ -122,6 +122,18 @@ ul {
     will-change: transform;
 }
 
+/* Hasta que GSAP arranca la entrada; si el JS falla, se muestra igual a los 3s */
+.js-reveal [data-reveal="load"] {
+    visibility: hidden;
+    animation: reveal-fallback 0s linear 3s forwards;
+}
+
+@keyframes reveal-fallback {
+    to {
+        visibility: visible;
+    }
+}
+
 /* ==========================================================================
    Cursor custom
    ========================================================================== */
