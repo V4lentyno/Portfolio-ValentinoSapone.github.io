@@ -46,7 +46,9 @@ function pieceMarkup(piece) {
         </div>
         <div class="video-facade" role="button" tabindex="0" data-vimeo-id="${piece.vimeoId}" data-title="${piece.title}"
              data-cursor="play" aria-label="Reproducir ${piece.title}">
-            <span class="video-facade__title" aria-hidden="true">${piece.title}</span>
+            ${piece.thumb
+                ? `<img class="video-facade__img" src="${piece.thumb.src}" srcset="${piece.thumb.srcSm} ${piece.thumb.smWidth}w, ${piece.thumb.src} ${piece.thumb.width}w" sizes="(max-width: 767px) 360px, 100vw" width="${piece.thumb.width}" height="${piece.thumb.height}" alt="" loading="lazy" decoding="async">`
+                : `<span class="video-facade__title" aria-hidden="true">${piece.title}</span>`}
             <span class="video-facade__play">reproducir</span>
         </div>
     </section>`;

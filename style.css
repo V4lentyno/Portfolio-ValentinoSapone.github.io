@@ -739,6 +739,19 @@ html.has-cursor * {
     pointer-events: none;
 }
 
+.video-facade__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s var(--ease-out);
+}
+
+.video-facade:hover .video-facade__img {
+    transform: scale(1.03);
+}
+
 .video-facade__play {
     position: relative;
     padding: 12px 24px;

@@ -75,6 +75,16 @@ const loopupBoards = [
     ['12', 1443, 'LoopUp — UI kit: íconos y sombras'],
 ].map(([n, height, alt]) => ({ src: loopupImg(n), srcSm: loopupImg(n, true), smWidth: 1080, width: 1920, height, alt }));
 
+// Miniaturas de Vimeo servidas por su CDN en WebP (960px y 1920px). El id cambia si se
+// elige otra miniatura en Vimeo: se obtiene de https://vimeo.com/api/oembed.json?url=https://vimeo.com/<id>
+const vimeoThumb = (id) => ({
+    src: `https://i.vimeocdn.com/video/${id}-d_1920x1080.webp`,
+    srcSm: `https://i.vimeocdn.com/video/${id}-d_960x540.webp`,
+    smWidth: 960,
+    width: 1920,
+    height: 1080,
+});
+
 const nologyBoards = [
     { video: nologyLogo, poster: nologyImg('01-poster'), width: 1280, height: 720, alt: 'nology — logo animado en loop' },
     ...nologyBoardList.map(([n, height, alt]) => ({
@@ -159,28 +169,33 @@ export const projectsData = [
         year: null,
         link: null,
         desc: 'Tres piezas en video realizadas durante la Licenciatura en Diseño Multimedia en Universidad ORT Uruguay.',
-        cover: null, // TODO: miniatura para la tarjeta (fotograma de una de las piezas)
-        coverAspect: '16 / 9',
+        // Portada: fotograma de DayNnite
+        cover: vimeoThumb('2192907877-4861978666163379a066b5d071739b92ef3f5b3cab575e6eb89d9b1fc0fb90bc'),
         boards: [],
         videos: [],
         pieces: [
             {
-                title: 'carpeta anual 2',
-                tag: 'audiovisual & multimedia',
-                vimeoId: '1178099028',
-                desc: 'Recopilación de trabajos y entregas realizadas durante el tercer y cuarto semestre de la Licenciatura en Diseño Multimedia en Universidad ORT Uruguay.',
+                title: 'daynnite',
+                tag: 'mixed media & videoclip',
+                vimeoId: '1220455394',
+                thumb: vimeoThumb('2192907877-4861978666163379a066b5d071739b92ef3f5b3cab575e6eb89d9b1fc0fb90bc'),
+                desc: 'Videoclip mixed media para la materia Gráfica para Cine y TV del 5.º semestre de la Licenciatura en Diseño Multimedia, con la canción "DayNnite" de Kid Cudi.',
             },
             {
                 title: 'repeat',
                 tag: 'branding & motion',
                 vimeoId: '1178099739',
+                thumb: vimeoThumb('2139612984-4d461eebbad64f01edee22850c45d743263566273bd1070271b218bd27ae4677'),
                 desc: 'Proyecto de identidad visual para estudio de diseño ficticio especializado en música urbana y producción gráfica contemporánea.',
             },
             {
-                title: 'daynnite',
-                tag: 'mixed media & videoclip',
-                vimeoId: '1220455394',
-                desc: 'Videoclip mixed media para la materia Gráfica para Cine y TV del 5.º semestre de la Licenciatura en Diseño Multimedia, con la canción "DayNnite" de Kid Cudi.',
+                title: 'carpeta anual 2',
+                tag: 'audiovisual & multimedia',
+                vimeoId: '1178099028',
+                // TODO: la miniatura actual de Vimeo es un fotograma en blanco; elegir otro fotograma
+                // en Vimeo (o exportar uno) y agregarlo como thumb.
+                thumb: null,
+                desc: 'Recopilación de trabajos y entregas realizadas durante el tercer y cuarto semestre de la Licenciatura en Diseño Multimedia en Universidad ORT Uruguay.',
             },
         ],
     },
