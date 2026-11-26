@@ -48,8 +48,8 @@ export function initTitleReveals() {
         if (mode === 'pixel') {
             gsap.fromTo(
                 inner,
-                { clipPath: 'inset(0 100% 0 0)' },
-                { clipPath: 'inset(0 0% 0 0)', duration: 0.9, ease: 'steps(14)', delay: 0.7 }
+                { clipPath: 'inset(-10% 100% -40% 0)' },
+                { clipPath: 'inset(-10% 0% -40% 0)', duration: 0.9, ease: 'steps(14)', delay: 0.7, clearProps: 'clipPath' }
             );
             return;
         }

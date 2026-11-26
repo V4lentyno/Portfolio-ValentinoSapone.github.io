@@ -4,6 +4,7 @@ import loopup01 from '../../images/loopup-01.webp';
 import loopup01Sm from '../../images/loopup-01-1440.webp';
 import ajedrezVideo from '../../videos/ajedrez.mp4';
 import ajedrezPoster from '../../images/ajedrez-poster.webp';
+import nologyLogo from '../../videos/nology-logo.mp4';
 
 /**
  * Fuente única de los proyectos: alimenta las tarjetas de la home y la plantilla
@@ -18,35 +19,51 @@ import ajedrezPoster from '../../images/ajedrez-poster.webp';
  * para poner videos en loop encima de un mockup de pantalla.
  */
 
-// TODO: exportar las 16 láminas de NOLOGY en alta resolución (WebP, 2880px y 1440px de ancho)
-// como images/nology/nology-01.webp … nology-16.webp (+ -1440.webp), y el logo animado (GIF)
-// como videos/nology-logo.mp4 (+ .webm). Luego importarlos acá y reemplazar los placeholders.
-// Ajustar width/height a las medidas reales de cada lámina.
-const nologyBoards = Array.from({ length: 16 }, (_, i) => {
-    const n = String(i + 1).padStart(2, '0');
-    return {
-        placeholder: true,
-        width: 2880,
-        height: 1800,
-        alt: i === 0 ? 'nology — logo animado' : `nology — lámina ${n}`,
-        todo: i === 0 ? 'exportar logo animado (videos/nology-logo.mp4)' : `exportar lámina ${n}`,
-    };
-});
+// NOLOGY: láminas exportadas a 2800px (+ versión 1440px) y logo animado en loop.
+const nologyImages = import.meta.glob('../../images/nology/nology-*.webp', { eager: true, import: 'default' });
+const nologyImg = (n, sm = false) => nologyImages[`../../images/nology/nology-${n}${sm ? '-1440' : ''}.webp`];
+const nologyBoardList = [
+    ['02', 1800, 'nology — introducción a la marca'],
+    ['03', 2000, 'nology — logotipo'],
+    ['04', 1600, 'nology — isotipo del oso polar gamer y logotipo de letras píxel'],
+    ['05', 2300, 'nology — construcción del logotipo sobre grilla de píxel'],
+    ['06', 2840, 'nology — versiones del logo'],
+    ['07', 3520, 'nology — versiones cromáticas'],
+    ['08', 2200, 'nology — paleta: azul glaciar, rosa estrella, negro píxel y blanco polar'],
+    ['09', 2000, 'nology — tipografía'],
+    ['10', 2120, 'nology — recursos gráficos: estrella, gorra y boca'],
+    ['11', 1800, 'nology — patrón'],
+    ['12', 1640, 'nology — usos incorrectos del logo'],
+    ['13', 1576, 'nology — aplicación en la fachada del local'],
+    ['14', 2100, 'nology — papelería'],
+    ['15', 2160, 'nology — aplicaciones digitales y redes'],
+    ['16', 2360, 'nology — stickers'],
+    ['17', 1800, 'nology — cierre'],
+];
+const nologyBoards = [
+    { video: nologyLogo, poster: nologyImg('01-poster'), width: 1280, height: 720, alt: 'nology — logo animado en loop' },
+    ...nologyBoardList.map(([n, height, alt]) => ({
+        src: nologyImg(n),
+        srcSm: nologyImg(n, true),
+        width: 2800,
+        height,
+        alt,
+    })),
+];
 
 export const projectsData = [
     {
         slug: 'nology',
         title: 'nology',
         tag: 'branding & motion',
-        color: '#0066ff', // TODO: ajustar al azul real de la marca NOLOGY si difiere
-        accent: '#ff5fa2', // TODO: rosa NOLOGY real (cursor del case study)
+        color: '#0097ec', // azul glaciar
+        accent: '#fca7ff', // rosa estrella (cursor del case study)
         role: 'diseño de logotipo, diseño gráfico, gráficos animados',
         tools: 'adobe illustrator, after effects',
         year: '2026',
         link: 'https://www.behance.net/gallery/258906337/NOLOGY',
         desc: 'nology es una tienda de tecnología que valora lo retro. para su identidad diseñé un logotipo pixelado, como guiño a las primeras pantallas y consolas, y un isotipo protagonizado por un oso polar gamer con gorra, lentes y la lengua afuera. el sistema se completa con una paleta de azul, rosa, negro y blanco, recursos gráficos tomados del propio personaje (la estrella, la gorra y la boca) y aplicaciones en papelería, redes, stickers y el local.',
-        cover: null, // TODO: portada de la tarjeta (usar nology-01 o un fotograma del logo animado)
-        coverAspect: '16 / 10',
+        cover: { video: nologyLogo, poster: nologyImg('01-poster'), width: 1280, height: 720 },
         pixelTitle: true,
         boards: nologyBoards,
         videos: [],

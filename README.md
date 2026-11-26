@@ -31,9 +31,6 @@ Las rutas son relativas (`base: './'`), así que el `dist/` funciona tanto en la
 
 ## TODO pendientes
 
-- [ ] **NOLOGY**: exportar las 16 láminas en alta resolución (`images/nology/nology-01.webp` … `nology-16.webp`) y el logo animado como `videos/nology-logo.mp4` (+ `.webm`). Hoy hay placeholders del tamaño previsto (2880 × 1800); ajustar medidas reales.
-- [ ] **NOLOGY**: portada para la tarjeta de la home y miniatura para el carrusel del CTA.
-- [ ] **NOLOGY**: confirmar el azul (`--c-nology`) y el rosa de marca (`--c-nology-pink`, `accent` en `projectsData.js`).
 - [ ] **Ajedrez**: imagen real del proyecto (antes usaba la portada de "Diligencias") y URL real de Behance (antes apuntaba a behance.net a secas). Hoy la tarjeta usa el video en loop.
 - [ ] **Cosem / LoopUp**: sumar el resto de las láminas de Behance y, si hay, videos de la app dentro del mockup.
 - [ ] **Metadatos**: herramientas y año de Cosem, LoopUp, Ajedrez y Audiovisual (los campos vacíos no se muestran).

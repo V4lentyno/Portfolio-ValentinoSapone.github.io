@@ -13,6 +13,7 @@ import thumbHyh from '../../images/thumbs/portada-hyh.webp';
 import thumbCosem from '../../images/thumbs/cosem-01.webp';
 import thumbLoopup from '../../images/thumbs/loopup-01.webp';
 import thumbAjedrez from '../../images/thumbs/ajedrez-poster.webp';
+import thumbNology from '../../images/thumbs/nology-02.webp';
 
 function coverMarkup(p) {
     const c = p.cover;
@@ -87,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { src: thumbAjedrez, width: 400, height: 225 },
         { src: thumbWaterproof, width: 400, height: 400 },
         { src: thumbHyh, width: 400, height: 400 },
-        // TODO: sumar una miniatura de NOLOGY cuando estén las exportaciones
+        { src: thumbNology, width: 400, height: 257 },
     ]);
     startApp();
     lazyCoversShelf();

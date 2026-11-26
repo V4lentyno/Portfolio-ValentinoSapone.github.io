@@ -17,8 +17,8 @@
     --c-cosem: #0066ff;
     --c-loopup: #7000ff;
     --c-ajedrez: #ffbd2e;
-    --c-nology: #0066ff; /* TODO: ajustar al azul real de NOLOGY */
-    --c-nology-pink: #ff5fa2; /* TODO: rosa real de NOLOGY */
+    --c-nology: #0097ec; /* azul glaciar */
+    --c-nology-pink: #fca7ff; /* rosa estrella */
 
     --gutter: 28px;
     --nav-h: 48px;
@@ -1059,3 +1059,4 @@ html.has-cursor * {
         animation-duration: 0.01ms !important;
     }
 }
+
