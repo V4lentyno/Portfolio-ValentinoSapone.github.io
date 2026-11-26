@@ -1,5 +1,3 @@
-import cosem01 from '../../images/cosem-01.webp';
-import cosem01Sm from '../../images/cosem-01-1440.webp';
 import loopup01 from '../../images/loopup-01.webp';
 import loopup01Sm from '../../images/loopup-01-1440.webp';
 import ajedrezVideo from '../../videos/ajedrez.mp4';
@@ -12,7 +10,7 @@ import nologyLogo from '../../videos/nology-logo.mp4';
  * y el de "siguiente proyecto".
  *
  * Una lámina (board) puede ser:
- *   { src, srcSm?, width, height, alt }                  imagen a ancho completo
+ *   { src, srcSm?, smWidth?, width, height, alt }        imagen a ancho completo (srcSm mide smWidth, 1440 por defecto)
  *   { video, poster?, width, height, alt }                video en loop a ancho completo
  *   { placeholder: true, width, height, alt, todo }       hueco del tamaño correcto (falta exportar)
  * y opcionalmente `overlays: [{ src, top, left, width, height, radius }]` (en %)
@@ -40,6 +38,27 @@ const nologyBoardList = [
     ['16', 2360, 'nology — stickers'],
     ['17', 1800, 'nology — cierre'],
 ];
+// COSEM: láminas a 1920px (+ 1080px para pantallas chicas).
+const cosemImages = import.meta.glob('../../images/cosem/cosem-*.webp', { eager: true, import: 'default' });
+const cosemImg = (n, sm = false) => cosemImages[`../../images/cosem/cosem-${n}${sm ? '-1080' : ''}.webp`];
+const cosemBoards = [
+    ['01', 1080, 'Rediseño Cosem Online — portada'],
+    ['02', 1080, 'Cosem Online — qué es la aplicación'],
+    ['03', 1080, 'Cosem Online — problema inicial y contexto'],
+    ['04', 1080, 'Cosem Online — investigación UX: user persona, user journey map y benchmarking'],
+    ['05', 2948, 'Cosem Online — user personas'],
+    ['06', 1080, 'Cosem Online — user journey map'],
+    ['07', 2096, 'Cosem Online — benchmarking de apps de salud'],
+    ['08', 1080, 'Cosem Online — resultados de la encuesta'],
+    ['09', 1080, 'Cosem Online — entrevista'],
+    ['10', 2191, 'Cosem Online — solución propuesta: home original y home rediseñada'],
+    ['11', 1080, 'Cosem Online — resultados de las pruebas de usuario'],
+    ['12', 4265, 'Cosem Online — design system: tipografías, colores, botones, campos e íconos'],
+    ['13', 2235, 'Cosem Online — wireframes low-fi'],
+    ['14', 2417, 'Cosem Online — pantallas high-fi en modo claro'],
+    ['15', 2208, 'Cosem Online — pantallas high-fi en modo oscuro'],
+].map(([n, height, alt]) => ({ src: cosemImg(n), srcSm: cosemImg(n, true), smWidth: 1080, width: 1920, height, alt }));
+
 const nologyBoards = [
     { video: nologyLogo, poster: nologyImg('01-poster'), width: 1280, height: 720, alt: 'nology — logo animado en loop' },
     ...nologyBoardList.map(([n, height, alt]) => ({
@@ -78,11 +97,8 @@ export const projectsData = [
         year: null, // TODO: año
         link: 'https://www.behance.net/gallery/240027703/Rediseno-Cosem-Online',
         desc: 'La propuesta consistió en el rediseño de la interfaz de Cosem Online con el objetivo de simplificar la navegación y hacerla más intuitiva.',
-        cover: { src: cosem01, srcSm: cosem01Sm, width: 2596, height: 1460 },
-        boards: [
-            { src: cosem01, srcSm: cosem01Sm, width: 2596, height: 1460, alt: 'Rediseño Cosem Online — portada del proyecto' },
-            // TODO: agregar las láminas del proyecto en Behance (images/cosem/cosem-02.webp …)
-        ],
+        cover: { src: cosemImg('01'), srcSm: cosemImg('01', true), smWidth: 1080, width: 1920, height: 1080 },
+        boards: cosemBoards,
         videos: [],
     },
     {

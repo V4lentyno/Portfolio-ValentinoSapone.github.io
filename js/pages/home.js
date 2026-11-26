@@ -23,7 +23,7 @@ function coverMarkup(p) {
     if (c.video) {
         return `<video class="card__img" src="${c.video}" poster="${c.poster}" width="${c.width}" height="${c.height}" muted loop playsinline preload="none" data-loop aria-hidden="true"></video>`;
     }
-    const srcset = c.srcSm ? ` srcset="${c.srcSm} 1440w, ${c.src} ${c.width}w" sizes="(min-width: 768px) calc(100vw - 56px), 100vw"` : '';
+    const srcset = c.srcSm ? ` srcset="${c.srcSm} ${c.smWidth || 1440}w, ${c.src} ${c.width}w" sizes="(min-width: 768px) calc(100vw - 56px), 100vw"` : '';
     return `<img class="card__img" src="${c.src}"${srcset} width="${c.width}" height="${c.height}" alt="" loading="lazy" decoding="async">`;
 }
 
