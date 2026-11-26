@@ -18,6 +18,7 @@ npm run preview  # sirve dist/
 - `js/core/` — librerías (`libs.js`), sistema de movimiento (`motion.js`) y arranque común (`app.js`).
 - `js/pages/` — entrada de cada tipo de página (`home.js`, `project.js`).
 - `js/ui/` — Lenis, cursor, menú mobile, manifiesto, carrusel, videos en loop, fachada de Vimeo y lightbox.
+- `public/` — archivos que se copian tal cual a `dist/` (el CV en PDF).
 - `js/3d/coversShowcase.js` — estante 3D de portadas (se carga con import dinámico solo en la home).
 
 Las rutas son relativas (`base: './'`), así que el `dist/` funciona tanto en la raíz de un dominio (Vercel) como en una subcarpeta.
@@ -34,8 +35,6 @@ Las rutas son relativas (`base: './'`), así que el `dist/` funciona tanto en la
 - [ ] **NOLOGY**: portada para la tarjeta de la home y miniatura para el carrusel del CTA.
 - [ ] **NOLOGY**: confirmar el azul (`--c-nology`) y el rosa de marca (`--c-nology-pink`, `accent` en `projectsData.js`).
 - [ ] **Ajedrez**: imagen real del proyecto (antes usaba la portada de "Diligencias") y URL real de Behance (antes apuntaba a behance.net a secas). Hoy la tarjeta usa el video en loop.
-- [ ] **CV**: subir el PDF y poner la ruta en el botón "descargar cv" (`index.html`).
-- [ ] **Footer**: confirmar "basado en: montevideo, uruguay" y "disponible para: freelance y prácticas" (`partials/footer.html`).
 - [ ] **Cosem / LoopUp**: sumar el resto de las láminas de Behance y, si hay, videos de la app dentro del mockup.
 - [ ] **Metadatos**: herramientas y año de Cosem, LoopUp, Ajedrez y Audiovisual (los campos vacíos no se muestran).
 - [ ] **Audiovisual**: miniatura para la tarjeta de la home.
