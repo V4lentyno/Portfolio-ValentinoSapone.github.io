@@ -617,6 +617,15 @@ html.has-cursor * {
     overflow-wrap: normal;
 }
 
+.case-title--long {
+    /* una sola línea; project.js ajusta el tamaño para que ocupe el ancho de "nology" */
+    white-space: nowrap;
+}
+
+.case-title--long .reveal-line__inner {
+    display: inline-block;
+}
+
 .project--nology .case-title .reveal-line__inner {
     will-change: clip-path;
 }

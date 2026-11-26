@@ -90,6 +90,31 @@ function renderCase(p) {
     </a>`;
 }
 
+/**
+ * Títulos de varias palabras: van en una sola línea y se achican hasta ocupar el mismo
+ * ancho que un título de una palabra como "nology" (~75% del viewport). La animación de
+ * entrada no cambia porque solo mueve .reveal-line__inner.
+ */
+const TITLE_WIDTH = 0.755;
+function fitLongTitle(title) {
+    if (!title || !/\s/.test(title.textContent.trim())) return;
+    title.classList.add('case-title--long');
+    const inner = title.querySelector('.reveal-line__inner');
+    const fit = () => {
+        title.style.fontSize = '';
+        const size = parseFloat(getComputedStyle(title).fontSize);
+        const target = document.documentElement.clientWidth * TITLE_WIDTH;
+        title.style.fontSize = `${(size * target) / inner.scrollWidth}px`;
+    };
+    fit();
+    document.fonts?.ready.then(fit);
+    let raf;
+    window.addEventListener('resize', () => {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(fit);
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const slug = document.body.dataset.project;
     const project = projectsData.find((p) => p.slug === slug);
@@ -101,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add(`project--${slug}`);
 
     root.innerHTML = renderCase(project);
+    fitLongTitle(root.querySelector('.case-title'));
     initVimeoFacade(root);
     startApp();
 });
