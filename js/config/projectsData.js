@@ -1,6 +1,8 @@
 import ajedrezVideo from '../../videos/ajedrez.mp4';
 import ajedrezPoster from '../../images/ajedrez-poster.webp';
 import nologyLogo from '../../videos/nology-logo.mp4';
+import daynniteLoop from '../../videos/daynnite-loop.mp4';
+import daynnitePoster from '../../images/audiovisual/daynnite-poster.webp';
 import daynniteFrame from '../../images/audiovisual/daynnite.webp';
 import daynniteFrameSm from '../../images/audiovisual/daynnite-800.webp';
 import carpetaFrame from '../../images/audiovisual/carpeta-anual-2.webp';
@@ -151,24 +153,6 @@ export const projectsData = [
         videos: [],
     },
     {
-        slug: 'ajedrez',
-        title: 'modelado 3d ajedrez',
-        tag: 'cinema 4d & redshift',
-        color: '#ffbd2e',
-        role: 'modelado 3d e iluminación',
-        tools: 'cinema 4d, redshift',
-        year: null, // TODO: año
-        link: null, // TODO: URL real del proyecto en Behance (antes apuntaba a behance.net a secas)
-        desc: 'Proyecto de Modelado 3D e iluminación hiperrealista de piezas de ajedrez realizado en Cinema 4D y renderizado en RedShift.',
-        // TODO: imagen real del ajedrez (antes usaba por error la portada de "Diligencias").
-        // Mientras tanto la tarjeta usa el video en loop con un fotograma como póster.
-        cover: { video: ajedrezVideo, poster: ajedrezPoster, width: 1600, height: 900 },
-        boards: [
-            { video: ajedrezVideo, poster: ajedrezPoster, width: 1600, height: 900, alt: 'Piezas de ajedrez modeladas en Cinema 4D girando' },
-        ],
-        videos: [],
-    },
-    {
         slug: 'audiovisual',
         title: 'audiovisual',
         tag: 'tres piezas en video',
@@ -179,7 +163,7 @@ export const projectsData = [
         link: null,
         desc: 'Tres piezas en video realizadas durante la Licenciatura en Diseño Multimedia en Universidad ORT Uruguay.',
         // Portada: fotograma de DayNnite (00:56)
-        cover: daynniteThumb,
+        cover: { video: daynniteLoop, poster: daynnitePoster, width: 960, height: 540 },
         boards: [],
         videos: [],
         pieces: [
@@ -205,5 +189,23 @@ export const projectsData = [
                 desc: 'Recopilación de trabajos y entregas realizadas durante el tercer y cuarto semestre de la Licenciatura en Diseño Multimedia en Universidad ORT Uruguay.',
             },
         ],
+    },
+    {
+        slug: 'ajedrez',
+        title: 'modelado 3d ajedrez',
+        tag: 'cinema 4d & redshift',
+        color: '#ffbd2e',
+        role: 'modelado 3d e iluminación',
+        tools: 'cinema 4d, redshift',
+        year: null, // TODO: año
+        link: null, // TODO: URL real del proyecto en Behance (antes apuntaba a behance.net a secas)
+        desc: 'Proyecto de Modelado 3D e iluminación hiperrealista de piezas de ajedrez realizado en Cinema 4D y renderizado en RedShift.',
+        // TODO: imagen real del ajedrez (antes usaba por error la portada de "Diligencias").
+        // Mientras tanto la tarjeta usa el video en loop con un fotograma como póster.
+        cover: { video: ajedrezVideo, poster: ajedrezPoster, width: 1600, height: 900 },
+        boards: [
+            { video: ajedrezVideo, poster: ajedrezPoster, width: 1600, height: 900, alt: 'Piezas de ajedrez modeladas en Cinema 4D girando' },
+        ],
+        videos: [],
     },
 ];
