@@ -1012,7 +1012,8 @@ html.has-cursor * {
     }
 
     .cta__word {
-        font-size: 22vw;
+        /* "trabajemos" entra justo entre los márgenes */
+        font-size: min(22vw, calc((100vw - 32px) / 4.7));
     }
 
     .cta__word--right {
