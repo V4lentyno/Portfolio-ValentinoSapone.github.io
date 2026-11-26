@@ -350,7 +350,7 @@ html.has-cursor * {
 }
 
 .card:hover .card__title {
-    color: var(--project, var(--accent));
+    color: var(--accent);
 }
 
 .card__tag {
@@ -788,7 +788,7 @@ html.has-cursor * {
 
 .next:hover .next__title {
     transform: translateX(20px);
-    color: var(--project, var(--accent));
+    color: var(--accent);
 }
 
 /* ==========================================================================
