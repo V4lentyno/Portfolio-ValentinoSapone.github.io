@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { coversData } from '../config/coversData.js';
+import { reducedMotion } from '../core/motion.js';
 
 /**
  * Initializes the 3D Interactive Vinyl / Album Covers Showcase engine.
@@ -20,7 +21,7 @@ export function initCovers3DShowcase() {
     renderer.setSize(w, h);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.shadowMap.type = THREE.PCFShadowMap;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.25;
     container.appendChild(renderer.domElement);
@@ -71,17 +72,14 @@ export function initCovers3DShowcase() {
     keyLight.shadow.mapSize.height = 1024;
     scene.add(keyLight);
 
-    const blueRim = new THREE.PointLight(0x0066ff, 3.5, 12);
-    blueRim.position.set(-6, 3, -2);
-    scene.add(blueRim);
-
-    const purpleRim = new THREE.PointLight(0x7000ff, 3.5, 12);
-    purpleRim.position.set(6, -2, 2);
-    scene.add(purpleRim);
+    // Luz de relleno neutra (sin glow de color: la referencia es plana)
+    const fillLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    fillLight.position.set(-6, 2, -4);
+    scene.add(fillLight);
 
     // Shadow Floor
     const floorGeo = new THREE.PlaneGeometry(25, 25);
-    const floorMat = new THREE.ShadowMaterial({ opacity: 0.35 });
+    const floorMat = new THREE.ShadowMaterial({ opacity: 0.25 });
     const floorMesh = new THREE.Mesh(floorGeo, floorMat);
     floorMesh.rotation.x = -Math.PI / 2;
     floorMesh.position.y = -1.6;
@@ -101,7 +99,7 @@ export function initCovers3DShowcase() {
 
     // Dark Metallic sleeve edge material
     const sleeveEdgeMaterial = new THREE.MeshStandardMaterial({
-        color: 0x11131a,
+        color: 0x111111,
         metalness: 0.8,
         roughness: 0.2
     });
@@ -173,16 +171,24 @@ export function initCovers3DShowcase() {
     });
 
     // Animation Loop
-    const clock = new THREE.Clock();
+    const timer = new THREE.Timer();
+
+    // Solo renderizar cuando el estante está en pantalla
+    let onScreen = true;
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(([entry]) => { onScreen = entry.isIntersecting; }).observe(container);
+    }
 
     function animate() {
         requestAnimationFrame(animate);
+        if (!onScreen) return;
 
-        const elapsedTime = clock.getElapsedTime();
-        coversGroup.rotation.y = elapsedTime * 0.15;
+        timer.update();
+        const elapsedTime = timer.getElapsed();
+        if (!reducedMotion) coversGroup.rotation.y = elapsedTime * 0.15;
 
         albumMeshes.forEach((mesh, idx) => {
-            mesh.position.y = Math.sin(elapsedTime * 1.5 + idx * 1.2) * 0.08;
+            if (!reducedMotion) mesh.position.y = Math.sin(elapsedTime * 1.5 + idx * 1.2) * 0.08;
         });
 
         controls.update();

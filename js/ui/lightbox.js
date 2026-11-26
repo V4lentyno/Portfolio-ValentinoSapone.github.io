@@ -2,77 +2,57 @@ import { coversData } from '../config/coversData.js';
 import { lenis } from './smoothScroll.js';
 
 /**
- * Manages full-screen Lightbox modal overlay for inspecting album artwork.
+ * Lightbox de portadas con flechas y teclado (Esc, ←, →).
+ * El estante 3D lo abre con window.triggerLightboxAtIndex(i).
  */
 export function initLightbox() {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
+    const box = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    const caption = document.getElementById('lightbox-caption');
     const closeBtn = document.getElementById('lightbox-close');
     const prevBtn = document.getElementById('lightbox-prev');
     const nextBtn = document.getElementById('lightbox-next');
+    if (!box || !img) return;
 
-    let currentImageIndex = 0;
-    const coverSources = coversData.map(c => c.image);
+    let index = 0;
+    let lastFocus = null;
+    const total = coversData.length;
 
-    function updateLightboxImage() {
-        if (lightboxImg && coverSources[currentImageIndex]) {
-            lightboxImg.src = coverSources[currentImageIndex];
-        }
-    }
+    const render = () => {
+        const c = coversData[index];
+        img.src = c.image;
+        img.alt = `Portada de ${c.title}`;
+        if (caption) caption.textContent = `${c.title.toLowerCase()} — ${index + 1}/${total}`;
+    };
+    const step = (d) => { index = (index + d + total) % total; render(); };
 
-    function openLightbox(index) {
-        currentImageIndex = index;
-        updateLightboxImage();
-        if (lightbox) lightbox.classList.add('active');
-        if (lenis) lenis.stop();
-        else if (window.lenis) window.lenis.stop();
-    }
+    const open = (i) => {
+        index = i;
+        render();
+        lastFocus = document.activeElement;
+        box.classList.add('is-open');
+        box.setAttribute('aria-hidden', 'false');
+        (lenis || window.lenis)?.stop();
+        closeBtn?.focus();
+    };
+    const close = () => {
+        box.classList.remove('is-open');
+        box.setAttribute('aria-hidden', 'true');
+        (lenis || window.lenis)?.start();
+        lastFocus?.focus?.();
+    };
 
-    function closeLightbox() {
-        if (lightbox) lightbox.classList.remove('active');
-        if (lenis) lenis.start();
-        else if (window.lenis) window.lenis.start();
-    }
+    window.triggerLightboxAtIndex = open;
 
-    window.triggerLightboxAtIndex = openLightbox;
-
-    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-
-    if (lightbox) {
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                closeLightbox();
-            }
-        });
-    }
-
-    if (prevBtn) {
-        prevBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            currentImageIndex = (currentImageIndex > 0) ? currentImageIndex - 1 : coverSources.length - 1;
-            updateLightboxImage();
-        });
-    }
-
-    if (nextBtn) {
-        nextBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            currentImageIndex = (currentImageIndex < coverSources.length - 1) ? currentImageIndex + 1 : 0;
-            updateLightboxImage();
-        });
-    }
+    closeBtn?.addEventListener('click', close);
+    prevBtn?.addEventListener('click', (e) => { e.stopPropagation(); step(-1); });
+    nextBtn?.addEventListener('click', (e) => { e.stopPropagation(); step(1); });
+    box.addEventListener('click', (e) => { if (e.target === box) close(); });
 
     document.addEventListener('keydown', (e) => {
-        if (!lightbox || !lightbox.classList.contains('active')) return;
-
-        if (e.key === 'Escape') {
-            closeLightbox();
-        } else if (e.key === 'ArrowRight') {
-            currentImageIndex = (currentImageIndex < coverSources.length - 1) ? currentImageIndex + 1 : 0;
-            updateLightboxImage();
-        } else if (e.key === 'ArrowLeft') {
-            currentImageIndex = (currentImageIndex > 0) ? currentImageIndex - 1 : coverSources.length - 1;
-            updateLightboxImage();
-        }
+        if (!box.classList.contains('is-open')) return;
+        if (e.key === 'Escape') close();
+        else if (e.key === 'ArrowRight') step(1);
+        else if (e.key === 'ArrowLeft') step(-1);
     });
 }
