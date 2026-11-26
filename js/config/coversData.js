@@ -1,17 +1,16 @@
-import diligenciasImg from '../../images/portadadiligencias.png';
-import feliImg from '../../images/portadafeli.png';
-import waterproofImg from '../../images/portadawaterproof.png';
-import salidaImg from '../../images/portadasalida.png';
-import hyhImg from '../../images/portadahyh.jpeg';
+import diligenciasImg from '../../images/portada-diligencias.webp';
+import feliImg from '../../images/portada-feli.webp';
+import waterproofImg from '../../images/portada-waterproof.webp';
+import salidaImg from '../../images/portada-salida.webp';
+import hyhImg from '../../images/portada-hyh.webp';
 
 /**
- * Configuration and data for 3D interactive album & single cover artwork showcase.
+ * Portadas para artistas: alimentan el estante 3D, el lightbox y el carrusel del CTA.
  */
 export const coversData = [
-    { title: "Diligencias", image: diligenciasImg, color: "#ff0055" },
-    { title: "Feli", image: feliImg, color: "#0066ff" },
-    { title: "Waterproof", image: waterproofImg, color: "#00d2ff" },
-    { title: "Salida", image: salidaImg, color: "#7000ff" },
-    { title: "HyH", image: hyhImg, color: "#ffbd2e" }
+    { title: 'Diligencias', image: diligenciasImg },
+    { title: 'Feli', image: feliImg },
+    { title: 'Waterproof', image: waterproofImg },
+    { title: 'Salida', image: salidaImg },
+    { title: 'HyH', image: hyhImg },
 ];
-

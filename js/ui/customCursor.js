@@ -1,63 +1,59 @@
+import { gsap, ScrollTrigger } from '../core/libs.js';
+import { reducedMotion } from '../core/motion.js';
+
 /**
- * Custom cursor — reemplaza el cursor nativo en desktop con un dot animado.
- * Cambia de estado sobre proyectos 3D (muestra "DRAG") y links (muestra "VER").
- * Se desactiva automáticamente en dispositivos táctiles.
+ * Cursor custom: círculo de 48px con mix-blend-mode: difference.
+ * - Crece levemente sobre links y botones.
+ * - Sobre elementos con data-cursor="ver" (o cualquier texto) crece más y muestra la etiqueta.
+ * Se desactiva en dispositivos táctiles.
  */
 export function initCustomCursor() {
-    // No inicializar en dispositivos touch
-    if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    if (typeof gsap === 'undefined') return;
 
     const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    cursor.innerHTML = '<span class="cursor-label"></span>';
+    cursor.className = 'cursor';
+    cursor.setAttribute('aria-hidden', 'true');
+    cursor.innerHTML = '<span class="cursor__label"></span>';
     document.body.appendChild(cursor);
+    document.documentElement.classList.add('has-cursor');
 
-    const label = cursor.querySelector('.cursor-label');
+    const label = cursor.querySelector('.cursor__label');
+    const dur = reducedMotion ? 0 : 0.35;
+    const xTo = gsap.quickTo(cursor, 'x', { duration: dur, ease: 'power3' });
+    const yTo = gsap.quickTo(cursor, 'y', { duration: dur, ease: 'power3' });
 
-    let mouseX = -100, mouseY = -100;
-    let curX = -100, curY = -100;
-
-    document.addEventListener('mousemove', e => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+    let visible = false;
+    window.addEventListener('mousemove', (e) => {
+        if (!visible) {
+            gsap.set(cursor, { x: e.clientX, y: e.clientY });
+            cursor.classList.add('is-visible');
+            visible = true;
+        }
+        xTo(e.clientX);
+        yTo(e.clientY);
     });
 
-    // Smooth follow
-    const tick = () => {
-        curX += (mouseX - curX) * 0.18;
-        curY += (mouseY - curY) * 0.18;
-        cursor.style.transform = `translate(${curX}px, ${curY}px)`;
-        requestAnimationFrame(tick);
-    };
-    tick();
+    document.addEventListener('mouseleave', () => {
+        cursor.classList.remove('is-visible');
+        visible = false;
+    });
 
-    // Estado: canvas 3D → DRAG
-    const canvases = document.querySelectorAll('.canvas-3d-fullscreen, .canvas-covers-3d');
-    canvases.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.classList.add('cursor--drag');
-            label.textContent = 'DRAG';
-        });
-        el.addEventListener('mouseleave', () => {
-            cursor.classList.remove('cursor--drag');
+    // Delegación: funciona también con el contenido que se arma desde JS.
+    document.addEventListener('mouseover', (e) => {
+        const labelled = e.target.closest('[data-cursor]');
+        const interactive = e.target.closest('a, button, [role="button"]');
+        if (labelled) {
+            cursor.classList.add('is-label');
+            cursor.classList.remove('is-hover');
+            label.textContent = labelled.dataset.cursor;
+        } else if (interactive) {
+            cursor.classList.add('is-hover');
+            cursor.classList.remove('is-label');
             label.textContent = '';
-        });
+        } else {
+            cursor.classList.remove('is-hover', 'is-label');
+            label.textContent = '';
+        }
     });
-
-    // Estado: links / botones → VER
-    document.querySelectorAll('a, button, .audiovisual-card, .video-facade').forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            if (!cursor.classList.contains('cursor--drag')) {
-                cursor.classList.add('cursor--hover');
-            }
-        });
-        el.addEventListener('mouseleave', () => {
-            cursor.classList.remove('cursor--hover');
-        });
-    });
-
-    // Ocultar cuando el mouse sale de la ventana
-    document.addEventListener('mouseleave', () => cursor.classList.add('cursor--hidden'));
-    document.addEventListener('mouseenter', () => cursor.classList.remove('cursor--hidden'));
 }
-
