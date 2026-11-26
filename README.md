@@ -33,4 +33,3 @@ Las rutas son relativas (`base: './'`), así que el `dist/` funciona tanto en la
 
 - [ ] **Ajedrez**: imagen real del proyecto (antes usaba la portada de "Diligencias") y URL real de Behance (antes apuntaba a behance.net a secas). Hoy la tarjeta usa el video en loop.
 - [ ] **Metadatos**: herramientas y año de Cosem, LoopUp, Ajedrez y Audiovisual (los campos vacíos no se muestran).
-- [ ] **Audiovisual**: la miniatura de "carpeta anual 2" en Vimeo es un fotograma en blanco; elegir otro y sumarlo como `thumb` en `projectsData.js`.

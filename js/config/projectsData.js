@@ -1,6 +1,10 @@
 import ajedrezVideo from '../../videos/ajedrez.mp4';
 import ajedrezPoster from '../../images/ajedrez-poster.webp';
 import nologyLogo from '../../videos/nology-logo.mp4';
+import daynniteFrame from '../../images/audiovisual/daynnite.webp';
+import daynniteFrameSm from '../../images/audiovisual/daynnite-800.webp';
+import carpetaFrame from '../../images/audiovisual/carpeta-anual-2.webp';
+import carpetaFrameSm from '../../images/audiovisual/carpeta-anual-2-640.webp';
 
 /**
  * Fuente única de los proyectos: alimenta las tarjetas de la home y la plantilla
@@ -74,6 +78,11 @@ const loopupBoards = [
     ['11', 1380, 'LoopUp — UI kit: otros componentes'],
     ['12', 1443, 'LoopUp — UI kit: íconos y sombras'],
 ].map(([n, height, alt]) => ({ src: loopupImg(n), srcSm: loopupImg(n, true), smWidth: 1080, width: 1920, height, alt }));
+
+// Portadas de las piezas audiovisuales: fotogramas elegidos por Valentino
+// (DayNnite en 00:56, Carpeta Anual 2 en 00:06), exportados a WebP.
+const daynniteThumb = { src: daynniteFrame, srcSm: daynniteFrameSm, smWidth: 800, width: 1600, height: 900 };
+const carpetaThumb = { src: carpetaFrame, srcSm: carpetaFrameSm, smWidth: 640, width: 1280, height: 720 };
 
 // Miniaturas de Vimeo servidas por su CDN en WebP (960px y 1920px). El id cambia si se
 // elige otra miniatura en Vimeo: se obtiene de https://vimeo.com/api/oembed.json?url=https://vimeo.com/<id>
@@ -169,8 +178,8 @@ export const projectsData = [
         year: null,
         link: null,
         desc: 'Tres piezas en video realizadas durante la Licenciatura en Diseño Multimedia en Universidad ORT Uruguay.',
-        // Portada: fotograma de DayNnite
-        cover: vimeoThumb('2192907877-4861978666163379a066b5d071739b92ef3f5b3cab575e6eb89d9b1fc0fb90bc'),
+        // Portada: fotograma de DayNnite (00:56)
+        cover: daynniteThumb,
         boards: [],
         videos: [],
         pieces: [
@@ -178,7 +187,7 @@ export const projectsData = [
                 title: 'daynnite',
                 tag: 'mixed media & videoclip',
                 vimeoId: '1220455394',
-                thumb: vimeoThumb('2192907877-4861978666163379a066b5d071739b92ef3f5b3cab575e6eb89d9b1fc0fb90bc'),
+                thumb: daynniteThumb,
                 desc: 'Videoclip mixed media para la materia Gráfica para Cine y TV del 5.º semestre de la Licenciatura en Diseño Multimedia, con la canción "DayNnite" de Kid Cudi.',
             },
             {
@@ -192,9 +201,7 @@ export const projectsData = [
                 title: 'carpeta anual 2',
                 tag: 'audiovisual & multimedia',
                 vimeoId: '1178099028',
-                // TODO: la miniatura actual de Vimeo es un fotograma en blanco; elegir otro fotograma
-                // en Vimeo (o exportar uno) y agregarlo como thumb.
-                thumb: null,
+                thumb: carpetaThumb,
                 desc: 'Recopilación de trabajos y entregas realizadas durante el tercer y cuarto semestre de la Licenciatura en Diseño Multimedia en Universidad ORT Uruguay.',
             },
         ],
