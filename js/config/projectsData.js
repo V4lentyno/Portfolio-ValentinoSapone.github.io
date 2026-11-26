@@ -1,5 +1,3 @@
-import loopup01 from '../../images/loopup-01.webp';
-import loopup01Sm from '../../images/loopup-01-1440.webp';
 import ajedrezVideo from '../../videos/ajedrez.mp4';
 import ajedrezPoster from '../../images/ajedrez-poster.webp';
 import nologyLogo from '../../videos/nology-logo.mp4';
@@ -59,6 +57,24 @@ const cosemBoards = [
     ['15', 2208, 'Cosem Online — pantallas high-fi en modo oscuro'],
 ].map(([n, height, alt]) => ({ src: cosemImg(n), srcSm: cosemImg(n, true), smWidth: 1080, width: 1920, height, alt }));
 
+// LOOPUP: láminas a 1920px (+ 1080px para pantallas chicas).
+const loopupImages = import.meta.glob('../../images/loopup/loopup-*.webp', { eager: true, import: 'default' });
+const loopupImg = (n, sm = false) => loopupImages[`../../images/loopup/loopup-${n}${sm ? '-1080' : ''}.webp`];
+const loopupBoards = [
+    ['01', 1080, 'LoopUp — portada de la app mobile'],
+    ['02', 1246, 'LoopUp — presentación'],
+    ['03', 1240, 'LoopUp — problema'],
+    ['04', 1080, 'LoopUp — solución'],
+    ['05', 3520, 'LoopUp — user flow de la app'],
+    ['06', 2587, 'LoopUp — UI kit: tipografías y colores'],
+    ['07', 2943, 'LoopUp — UI kit: botones y microinteracciones'],
+    ['08', 1080, 'LoopUp — UI kit: cards'],
+    ['09', 2376, 'LoopUp — UI kit: sliders de onboarding'],
+    ['10', 2162, 'LoopUp — UI kit: campos'],
+    ['11', 1380, 'LoopUp — UI kit: otros componentes'],
+    ['12', 1443, 'LoopUp — UI kit: íconos y sombras'],
+].map(([n, height, alt]) => ({ src: loopupImg(n), srcSm: loopupImg(n, true), smWidth: 1080, width: 1920, height, alt }));
+
 const nologyBoards = [
     { video: nologyLogo, poster: nologyImg('01-poster'), width: 1280, height: 720, alt: 'nology — logo animado en loop' },
     ...nologyBoardList.map(([n, height, alt]) => ({
@@ -111,12 +127,8 @@ export const projectsData = [
         year: '2025',
         link: 'https://www.behance.net/gallery/229775105/LoopUp-Mobile-App',
         desc: 'LoopUp es una aplicación de compra y venta de accesorios de segunda mano, pensada para promover una moda sustentable, circular e inclusiva.',
-        cover: { src: loopup01, srcSm: loopup01Sm, width: 2594, height: 1458 },
-        boards: [
-            { src: loopup01, srcSm: loopup01Sm, width: 2594, height: 1458, alt: 'LoopUp — portada del proyecto' },
-            // TODO: agregar las láminas del proyecto en Behance (images/loopup/loopup-02.webp …)
-            // y, si hay, videos de la app como `overlays` dentro del mockup del teléfono.
-        ],
+        cover: { src: loopupImg('01'), srcSm: loopupImg('01', true), smWidth: 1080, width: 1920, height: 1080 },
+        boards: loopupBoards,
         videos: [],
     },
     {

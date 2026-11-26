@@ -22,7 +22,7 @@ function boardMarkup(b, i) {
     if (b.video) {
         media = `<video class="board__media" src="${b.video}"${b.poster ? ` poster="${b.poster}"` : ''} width="${b.width}" height="${b.height}" muted loop playsinline preload="${eager ? 'auto' : 'none'}" data-loop aria-label="${b.alt}"></video>`;
     } else {
-        const srcset = b.srcSm ? ` srcset="${b.srcSm} ${b.smWidth || 1440}w, ${b.src} ${b.width}w" sizes="100vw"` : '';
+        const srcset = b.srcSm ? ` srcset="${b.srcSm} ${b.smWidth || 1440}w, ${b.src} ${b.width}w" sizes="(max-width: 767px) 360px, 100vw"` : '';
         media = `<img class="board__media" src="${b.src}"${srcset} width="${b.width}" height="${b.height}" alt="${b.alt}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
     }
 
