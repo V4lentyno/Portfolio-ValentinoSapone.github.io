@@ -284,7 +284,7 @@ html.has-cursor * {
 
 .work {
     /* margen generoso para que en la primera pantalla asome poco del primer proyecto */
-    padding: clamp(220px, 20vw, 380px) var(--gutter) 0;
+    padding: clamp(190px, 16vw, 280px) var(--gutter) 0;
 }
 
 .work__list {
@@ -952,7 +952,7 @@ html.has-cursor * {
     }
 
     .work {
-        padding-top: 160px;
+        padding-top: 130px;
     }
 
     .work__list {
